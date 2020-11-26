@@ -57,6 +57,24 @@ On Ubuntu(16.04 LTS or later)::
   % apt install gcc python-dev libffi-dev libssl-dev libxml2-dev libxslt1-dev zlib1g-dev
 
 
+Docker
+======
+
+You can run Ryu in Docker too. To use volume mounting to run your controller, just run::
+
+  % docker run --rm -it -v $PWD:/controllers/:ro -e CONTROLLER=example.py -p 6653:6653 ghcr.io/advanced-networking/ryu:latest
+
+Assuming you're in the same directory as your controller code and the controller is a file called example.py
+
+Or you can make a new container for your controller::
+
+  FROM ghcr.io/advanced-networking/ryu:latest
+  COPY . /controllers/
+  ENV CONTROLLER=example.py
+
+  % docker build --rm -t mycontroller:latest .
+
+
 Support
 =======
 Ryu Official site is `<https://ryu-sdn.org/>`_.
