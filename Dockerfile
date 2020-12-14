@@ -2,7 +2,6 @@ FROM python:3.9-alpine
 
 RUN apk add --no-cache \
     gcc \
-    #git \
     libffi-dev \
     libxml2-dev \
     libxslt-dev \
@@ -10,6 +9,7 @@ RUN apk add --no-cache \
     openssl-dev \
     py3-cryptography \
     py3-lxml \
+    py3-toml \
     py3-yaml \
     zlib-dev
 
